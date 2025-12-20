@@ -11,9 +11,6 @@ if (session_status() === PHP_SESSION_NONE) {
 function writeToCsv($data, $filename = 'contact_from_website.csv') {
     $filepath = __DIR__ . '/' . $filename;
     
-    // Log function call for debugging
-    error_log("writeToCsv called. File: $filepath, Data keys: " . implode(',', array_keys($data)));
-    
     // Check if file exists
     $fileExists = file_exists($filepath);
     
@@ -42,7 +39,6 @@ function writeToCsv($data, $filename = 'contact_from_website.csv') {
     // Check if directory is writable
     $dir = dirname($filepath);
     if (!is_writable($dir) && $fileExists && !is_writable($filepath)) {
-        error_log("Directory or file not writable: $filepath");
         return false;
     }
     
@@ -53,15 +49,12 @@ function writeToCsv($data, $filename = 'contact_from_website.csv') {
     $file = @fopen($filepath, 'a');
     
     if ($file === false) {
-        $error = error_get_last();
-        error_log("Failed to open CSV file: $filepath. Error: " . ($error ? $error['message'] : 'Unknown'));
         return false;
     }
     
     // Acquire exclusive lock
     if (!flock($file, LOCK_EX)) {
         fclose($file);
-        error_log("Failed to lock CSV file: $filepath");
         return false;
     }
     
@@ -110,32 +103,17 @@ function writeToCsv($data, $filename = 'contact_from_website.csv') {
     $written = fputcsv($file, $row);
     
     if ($written === false) {
-        error_log("Failed to write CSV row to file: $filepath");
         flock($file, LOCK_UN);
         fclose($file);
         return false;
     }
     
     // Force flush to ensure data is written immediately
-    if (!fflush($file)) {
-        error_log("Warning: Failed to flush CSV file: $filepath");
-    }
+    fflush($file);
     
     // Release lock and close file
     flock($file, LOCK_UN);
     fclose($file);
-    
-    // Verify the data was written by checking file size increased
-    clearstatcache(true, $filepath);
-    $fileSizeAfter = file_exists($filepath) ? filesize($filepath) : 0;
-    
-    if ($fileSizeAfter <= $fileSizeBefore && $fileSizeBefore > 0) {
-        error_log("Warning: File size did not increase after write. Before: $fileSizeBefore bytes, After: $fileSizeAfter bytes. File: $filepath");
-        // Still return true if we got a write result, as the data might be there
-    }
-    
-    // Log success for debugging
-    error_log("CSV write successful. File: $filepath, Row written: " . implode(',', array_slice($row, 0, 5)) . '...');
     
     return true;
 }
@@ -211,41 +189,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
     
     // Write to CSV file
-    $filepath = __DIR__ . '/contact_from_website.csv';
     $writeResult = writeToCsv($csvData);
     
     if ($writeResult) {
-        // Verify file was actually written
-        clearstatcache(true, $filepath);
-        if (file_exists($filepath)) {
-            $fileContent = file_get_contents($filepath);
-            $lastLine = substr($fileContent, strrpos($fileContent, "\n", -2) ?: 0);
-            error_log("CSV write successful. Last line: " . substr($lastLine, 0, 100));
-        }
-        
         echo json_encode([
             'success' => true,
             'message' => 'Thank you for contacting us! We will get back to you soon.'
         ]);
     } else {
-        // Log the error for debugging
-        $errorMsg = 'Unable to save your information. Please try again later.';
-        
-        // Check specific issues
-        if (!is_writable(dirname($filepath))) {
-            $errorMsg .= ' (Directory not writable: ' . dirname($filepath) . ')';
-        } elseif (file_exists($filepath) && !is_writable($filepath)) {
-            $errorMsg .= ' (File not writable: ' . $filepath . ')';
-        } elseif (!file_exists($filepath)) {
-            $errorMsg .= ' (File could not be created: ' . $filepath . ')';
-        }
-        
-        error_log("CSV write failed. File: $filepath, Directory writable: " . (is_writable(dirname($filepath)) ? 'yes' : 'no') . ", File exists: " . (file_exists($filepath) ? 'yes' : 'no') . ", File writable: " . (file_exists($filepath) && is_writable($filepath) ? 'yes' : 'no'));
-        error_log("CSV write failed. Data: " . print_r($csvData, true));
-        
         echo json_encode([
             'success' => false,
-            'message' => $errorMsg
+            'message' => 'Unable to save your information. Please try again later.'
         ]);
     }
 } else {
