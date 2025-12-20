@@ -1,0 +1,7 @@
+/docs/
+list-*.txt
+/assets/images/
+/py-scripts/
+error_log*
+subscriber_emails.txt
+sitemap-backup.xml

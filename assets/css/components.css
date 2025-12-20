@@ -1,0 +1,212 @@
+/* FORBIX SEMICON® Components CSS - Professional UI Elements */
+
+/* ===== MAIN HEADER SECTION ===== */
+.header-section {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-light);
+}
+
+.header-section h1 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.header-section hr {
+  margin: 1rem 0;
+  border: none;
+  border-top: 2px solid var(--accent-color);
+  width: 100px;
+}
+
+.header-section p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ===== COMPONENT CARDS ===== */
+.comp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 20px var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.comp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--shadow-medium);
+}
+
+/* ===== ELEGANT BUTTONS ===== */
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-color), #0f766e);
+  color: white;
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* ===== TECH SPECS GRID ===== */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.tech-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.tech-item h4 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.tech-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== PRODUCT INFO SECTION ===== */
+.product-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.info-section h3 {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.info-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list li::before {
+  content: '✓';
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* ===== BRAND INFO ===== */
+.brand-info {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.brand-info h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.model-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--accent-color);
+  margin-top: 1rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .product-info {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+  }
+  
+  .comp-card {
+    padding: 1.5rem;
+  }
+}

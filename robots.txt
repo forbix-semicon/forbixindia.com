@@ -1,0 +1,38 @@
+User-agent: *
+Allow: /
+
+# Block problematic URL patterns that cause redirect errors
+Disallow: /electronics/
+Disallow: /electronics/*
+Disallow: /*?attachment_id=*
+Disallow: /*feed/*
+
+# Allow all pages and directories
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /docs/
+Allow: *.php
+Allow: *.html
+Allow: *.pdf
+
+# Allow specific product pages
+Allow: /nurse-call.php
+Allow: /panic-alarm.php
+Allow: /peon-call.php
+Allow: /token-display.php
+Allow: /long-range.php
+Allow: /traffic-light.php
+Allow: /wireless-transceiver.php
+Allow: /motor-control.php
+Allow: /air-quality.php
+Allow: /product-6remote-code-red-2d-display.php
+Allow: /product-nurse-call-10bed-lcd-monitor.php
+Allow: /product-panic-alarm-1remote-1siren.php
+Allow: /product-peon-call-bell-6remotes.php
+Allow: /product-token-display-6-queue.php
+Allow: /product-air-quality-monitor-voc-meter.php
+Allow: /product-wireless-attendant-calling-system-10remotes.php
+Allow: /product-remote-wireless-traffic-light-controller.php
+
+Sitemap: https://www.forbixindia.com/sitemap.xml

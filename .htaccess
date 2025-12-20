@@ -1,0 +1,87 @@
+RewriteEngine On
+
+# Redirect explicit /index.php to site root
+RewriteCond %{THE_REQUEST} \s/index\.php[?\s] [NC]
+RewriteRule ^index\.php$ https://www.forbixindia.com/ [R=301,L]
+
+# http://forbixindia.com → https://www.forbixindia.com
+# https://forbixindia.com → https://www.forbixindia.com
+# http://www.forbixindia.com → https://www.forbixindia.com
+# RewriteCond %{HTTPS} off [OR]
+# RewriteCond %{HTTP_HOST} !^www\.forbixindia\.com$ [NC]
+# RewriteRule ^(.*)$ https://www.forbixindia.com/$1 [R=301,L]
+
+# https://forbixindia.com/about/ → https://forbixindia.com/about
+# https://forbixindia.com/docs/file.pdf/ → https://forbixindia.com/docs/file.pdf
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Redirect all /electronics URLs to main site
+# https://forbixindia.com/electronics/any/path/here → https://www.forbixindia.com/
+# The electronics rule matches first
+# It has [L] flag so processing stops
+# It uses R=301
+RewriteRule ^electronics(/.*)?$ https://www.forbixindia.com/ [R=301,L]
+
+# Redirect non-existent pages to homepage (302 temporary redirect)
+# https://www.forbixindia.com/non-existent-page → https://www.forbixindia.com/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/404\.php$
+RewriteCond %{REQUEST_URI} !\.(php|html|css|js|png|jpg|jpeg|gif|ico|pdf|xml|txt)$ [NC]
+RewriteRule ^(.*)$ https://www.forbixindia.com/ [R=302,L]
+
+# Custom 404 error page
+ErrorDocument 404 /404.php
+
+# ================================
+# XML SITEMAP HANDLING
+# ================================
+# Ensure XML files are served with correct content type
+<FilesMatch "\.xml$">
+    Header set Content-Type "application/xml"
+</FilesMatch>
+
+# Allow access to sitemap files
+<FilesMatch "^sitemap.*\.xml$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Block access to sensitive files
+<Files ~ "^\.">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Block access to configuration files
+<FilesMatch "\.(json|log|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Set cache headers
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+</IfModule>
+
+# (Trailing slash removal already handled above)

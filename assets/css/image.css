@@ -1,0 +1,518 @@
+/* FORBIX SEMICON® Image CSS - Gallery, Lightbox & Navigation Styles */
+
+/* ===== PRODUCT GALLERY & LIGHTBOX ===== */
+
+/* Product Section Layout */
+.product-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px var(--shadow-light);
+  border: 1px solid var(--border-color);
+}
+
+/* Image Gallery Container */
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Featured Image */
+.featured-image {
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px var(--shadow-medium);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.featured-image:hover {
+  transform: scale(1.02);
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Thumbnail Grid */
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.thumbnail {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.thumbnail:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow-medium);
+}
+
+.thumbnail.active {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== LIGHTBOX STYLES ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.lightbox-close {
+  top: -60px;
+  right: -10px;
+}
+
+.lightbox-prev {
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ===== PRODUCT CAROUSEL STYLES ===== */
+.product-carousel {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-carousel > div {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-carousel img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 1rem;
+}
+
+.product-carousel img:hover {
+  transform: scale(1.05);
+}
+
+.product-carousel > div > div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Carousel Navigation Buttons */
+.product-carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 1.5rem;
+}
+
+.product-carousel button:first-of-type {
+  left: 1rem;
+}
+
+.product-carousel button:first-of-type::before {
+  content: '←';
+}
+
+.product-carousel button:last-of-type {
+  right: 1rem;
+}
+
+.product-carousel button:last-of-type::before {
+  content: '→';
+}
+
+.product-carousel button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Thumbnail Navigation for Product Pages */
+.product-carousel + div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+}
+
+.product-carousel + div > div {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product-carousel + div > div:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.product-carousel + div > div.active {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.2);
+}
+
+.product-carousel + div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-carousel + div > div:hover img {
+  transform: scale(1.1);
+}
+
+/* ===== GENERAL IMAGE STYLES ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+/* Main product images */
+main > div > div > div > div > img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px var(--shadow-light);
+}
+
+/* Gallery thumbnails */
+main > div > div > div > div + div img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  margin: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  border: 2px solid transparent;
+}
+
+main > div > div > div > div + div img:hover {
+  opacity: 1;
+  border-color: var(--accent-color);
+}
+
+/* ===== HERO SECTION IMAGES ===== */
+main > section:first-child {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  border-radius: 20px;
+  margin-bottom: 3rem;
+}
+
+main > section:first-child img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+/* ===== RESPONSIVE DESIGN FOR IMAGES ===== */
+
+/* Medium screens and tablets */
+@media (max-width: 900px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .featured-image {
+    height: 250px;
+  }
+
+  .thumbnail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 6px;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .lightbox-prev {
+    left: -50px;
+  }
+
+  .lightbox-next {
+    right: -50px;
+  }
+
+  .lightbox-close {
+    top: -50px;
+    right: -5px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .product-carousel {
+    height: 300px;
+  }
+
+  .product-carousel img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-carousel {
+    height: 250px;
+  }
+
+  .product-carousel img {
+    height: 200px;
+  }
+
+  .product-carousel + div {
+    flex-wrap: wrap;
+  }
+
+  .product-carousel + div > div {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+  }
+
+  .featured-image {
+    height: 200px;
+  }
+
+  .thumbnail-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .lightbox-counter {
+    bottom: 10px;
+  }
+
+  /* Stack gallery images vertically on mobile */
+  main > div > div > div > div + div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  main > div > div > div > div + div img {
+    width: 70px;
+    height: 50px;
+  }
+}
+
+/* ===== ACCESSIBILITY & PERFORMANCE ===== */
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .product-carousel,
+  .thumbnail,
+  .featured-image,
+  img {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.thumbnail:focus,
+.product-carousel button:focus,
+.lightbox-close:focus,
+.lightbox-prev:focus,
+.lightbox-next:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .lightbox,
+  .product-carousel button,
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    display: none;
+  }
+
+  .product-section {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
