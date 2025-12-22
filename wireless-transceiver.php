@@ -339,19 +339,12 @@ include __DIR__ . '/includes/header.php';
             </div>
             <div class="product-info">
                 <h3 class="product-title">Multi Channel Wireless Transmitter Receiver</h3>
-                <p class="product-model">Model: FBXTR1-4CH | Range: 100-120 meters</p>
+                <p class="product-model">Model: FBXTR01-04 | Range: 100-120 meters</p>
                 <p class="product-description">
                     Multi-channel wireless communication system (1-4 channels) with easy integration for existing automation systems. 
                     Robust construction for harsh industrial environments with multiple transmitter configurations available. 
                     Features one-to-many and many-to-one communication modes with relay outputs for motor and equipment control. 
-                    Includes digital and analog input/output options, encrypted wireless communication, and low power consumption with battery backup.
-                </p>
-                <h4>Setup Instructions:</h4>
-                <p class="product-description">
-                    Connect power supply (12V DC) to receiver unit<br>
-                    Connect load devices to relay outputs<br>
-                    Power on transmitter and receiver units<br>
-                    Verify proper operation before final installation
+                    Includes digital and analog input/output options, encrypted wireless communication, and low power consumption with 12VDC power supply.
                 </p>
                 <a href="device-wireless-rf-transmitter-receiver.php" class="btn btn-primary" aria-label="Read more about Multi Channel Wireless Transmitter Receiver">
                     Read More
@@ -374,10 +367,10 @@ include __DIR__ . '/includes/header.php';
                 <p class="product-description">
                     Single channel wireless remote control relay system for simple ON/OFF control applications. 
                     Perfect for controlling lights, motors, pumps, and other electrical equipment remotely. 
-                    Features robust relay contacts rated for high current loads with wireless range up to 500 meters. 
+                    Features robust relay contacts rated for high current loads with wireless range up to 100-120 meters. 
                     Easy installation with plug-and-play operation, ideal for home automation and industrial control applications.
                 </p>
-                <a href="device-wireless-rf-transmitter-receiver.php" class="btn btn-primary" aria-label="Read more about Remote Control Relay">
+                <a href="product-wireless-1channel-remote-control-relay-receiver.php" class="btn btn-primary" aria-label="Read more about Remote Control Relay">
                     Read More
                 </a>
             </div>
@@ -415,10 +408,18 @@ include __DIR__ . '/includes/header.php';
             <div class="feature-card">
                 <h3>Communication Range</h3>
                 <ul>
-                    <li>Multi-channel: 1-3 kilometers</li>
-                    <li>Single relay: Up to 500 meters</li>
+                    <li>Multi-channel: 100-120 meters</li>
+                    <li>High power models: 3-4 kilometers</li>
                     <li>Line-of-sight communication</li>
                     <li>Obstacle penetration capability</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>Input & Output</h3>
+                <ul>
+                    <li>Manual button input</li>
+                    <li>Loopback & Potential free signal input</li>
+                    <li>Relay output of various current ratings</li>
                 </ul>
             </div>
             <div class="feature-card">
@@ -426,7 +427,7 @@ include __DIR__ . '/includes/header.php';
                 <ul>
                     <li>12V DC power supply</li>
                     <li>Low power consumption</li>
-                    <li>Battery backup support</li>
+                    <li>Battery support for remotes</li>
                     <li>High current relay contacts</li>
                 </ul>
             </div>
@@ -435,7 +436,7 @@ include __DIR__ . '/includes/header.php';
                 <ul>
                     <li>Encrypted wireless communication</li>
                     <li>Multiple channel configurations</li>
-                    <li>Easy pairing and setup</li>
+                    <li>Factory configured setup</li>
                     <li>Industrial grade construction</li>
                 </ul>
             </div>

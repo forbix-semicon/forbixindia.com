@@ -99,6 +99,18 @@ $products = [
         'link' => 'product-remote-wireless-traffic-light-controller.php',
         'inStock' => true,
         'freeShipping' => true
+    ],
+    [
+        'id' => 'wireless-1channel-relay',
+        'name' => 'Wireless 1 Channel Remote Control Relay Receiver',
+        'model' => 'FBX5XTR1',
+        'brand' => 'FORBIX SEMICON®',
+        'price' => 7200,
+        'image' => 'assets/images/gallery/transmitter-receiver/forbix-semicon-wireless-remote-1port-relay.jpg',
+        'description' => 'Professional wireless 1 channel remote control relay receiver system for home automation and industrial control. Free ISM band 380-480MHz, 100-120m range, 5A @ 220VAC relay output. Complete set with remote, receiver, and power adapter.',
+        'link' => 'product-wireless-1channel-remote-control-relay-receiver.php',
+        'inStock' => true,
+        'freeShipping' => true
     ]
 ];
 
