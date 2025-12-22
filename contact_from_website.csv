@@ -1,1 +1,2 @@
 id,customer_id,date,time,customer_name,company_name,primary_contact,email_id,city,product_category,requirement,source,assigned_to,customer_type,status,comments,created_at,updated_at
+,,,,,,,,,,,,,,,,,
