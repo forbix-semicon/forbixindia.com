@@ -353,7 +353,7 @@ include __DIR__ . '/includes/header.php';
                     Power on transmitter and receiver units<br>
                     Verify proper operation before final installation
                 </p>
-                <a href="buy.php" class="btn btn-primary" aria-label="Read more about Multi Channel Wireless Transmitter Receiver">
+                <a href="device-wireless-rf-transmitter-receiver.php" class="btn btn-primary" aria-label="Read more about Multi Channel Wireless Transmitter Receiver">
                     Read More
                 </a>
             </div>
@@ -377,6 +377,33 @@ include __DIR__ . '/includes/header.php';
                     Features robust relay contacts rated for high current loads with wireless range up to 500 meters. 
                     Easy installation with plug-and-play operation, ideal for home automation and industrial control applications.
                 </p>
+                <a href="device-wireless-rf-transmitter-receiver.php" class="btn btn-primary" aria-label="Read more about Remote Control Relay">
+                    Read More
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. Single Transmitter Multiple Handheld Receivers -->
+        <div class="product-card">
+            <div class="product-image-container">
+                <div class="image-gallery">
+                    <div class="featured-image">
+                        <img src="assets/images/gallery/transmitter-receiver/forbix-semicon-1-transmitter-multiple-handheld-receivers.jpg" alt="FORBIX SEMICON Single Transmitter Multiple Handheld Receivers">
+                    </div>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Single Transmitter Multiple Handheld Receivers</h3>
+                <p class="product-model">Model: FBXTR1M | One-to-Many Communication System</p>
+                <p class="product-description">
+                    Single transmitter with multiple handheld receiver units for one-to-many communication systems. 
+                    Perfect for notification and alert systems where one transmitter needs to communicate with multiple receiver units simultaneously. 
+                    Features expandable receiver network with 100-120 meters operating range per receiver. 
+                    Free ISM band 380-480MHz RF frequency operation with reliable wireless communication for industrial and commercial applications.
+                </p>
+                <a href="device-wireless-rf-transmitter-receiver.php" class="btn btn-primary" aria-label="Read more about Single Transmitter Multiple Handheld Receivers">
+                    Read More
+                </a>
             </div>
         </div>
     </section>
