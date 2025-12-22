@@ -706,8 +706,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
-        <div class="hero-content">
             <h1>Wireless Remote Traffic Light Controller — 200mm LED | FORBIX SEMICON®</h1>
+        <div class="hero-content">
             <p>200mm visored LED traffic lights with remote control (100–120m), IP65 receiver and 12VDC operation</p>
         </div>
     </section>

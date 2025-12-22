@@ -682,8 +682,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>Token Display 6 Queue Management System — Wireless LCD | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>Token Display 6 Queue Management System — Wireless LCD | FORBIX SEMICON®</h1>
             <p>Advanced wireless token display system with 6-queue management, LCD monitor, and web-based admin control</p>
         </div>
     </section>

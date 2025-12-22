@@ -694,8 +694,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>Wireless 1 Channel Remote Control Relay Receiver | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>Wireless 1 Channel Remote Control Relay Receiver | FORBIX SEMICON®</h1>
             <p>Professional Wireless Relay Control System for Home Automation and Industrial Applications</p>
         </div>
     </section>

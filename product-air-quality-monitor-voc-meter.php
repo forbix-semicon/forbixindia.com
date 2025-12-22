@@ -685,8 +685,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>Air Quality Monitor — VOC & Formaldehyde Meter | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>Air Quality Monitor — VOC & Formaldehyde Meter | FORBIX SEMICON®</h1>
             <p>Precision VOC and formaldehyde monitoring for continuous indoor air quality surveillance with network integration</p>
         </div>
     </section>

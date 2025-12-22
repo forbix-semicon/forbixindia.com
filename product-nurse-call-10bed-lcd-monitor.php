@@ -697,8 +697,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>10-Bed Wireless Nurse Call System | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>10-Bed Wireless Nurse Call System | FORBIX SEMICON®</h1>
             <p>Advanced Healthcare Communication System with LCD Monitor Display for Hospitals and Care Facilities</p>
         </div>
     </section>

@@ -700,8 +700,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>Wireless Peon Call Bell 6 Remote System | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>Wireless Peon Call Bell 6 Remote System | FORBIX SEMICON®</h1>
             <p>Professional Office Communication System with Multi-Remote Call Bell Technology</p>
         </div>
     </section>

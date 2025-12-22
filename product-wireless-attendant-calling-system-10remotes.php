@@ -692,8 +692,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>Wireless Attendant Calling System — 10-Remote Set | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>Wireless Attendant Calling System — 10-Remote Set | FORBIX SEMICON®</h1>
             <p>Professional multi-point calling system with 10 wireless remotes for offices, hotels, healthcare, and senior living facilities</p>
         </div>
     </section>

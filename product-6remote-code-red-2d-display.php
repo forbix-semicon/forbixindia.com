@@ -697,8 +697,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>Wireless Code Red Alert System with 6 Remotes | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>Wireless Code Red Alert System with 6 Remotes | FORBIX SEMICON®</h1>
             <p>Advanced Emergency Alert System with 2D Display Technology for Critical Situations</p>
         </div>
     </section>

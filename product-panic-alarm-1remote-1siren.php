@@ -693,8 +693,8 @@ include __DIR__ . '/includes/header.php';
 <main>
     <!-- Product Hero Section -->
     <section class="product-hero">
+        <h1>Wireless Panic Alarm System 1 Remote 1 Siren | FORBIX SEMICON®</h1>
         <div class="hero-content">
-            <h1>Wireless Panic Alarm System 1 Remote 1 Siren | FORBIX SEMICON®</h1>
             <p>Professional Security Alert System with 108dB High-Power Emergency Siren for Home and Commercial Use</p>
         </div>
     </section>
