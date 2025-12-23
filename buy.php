@@ -398,40 +398,85 @@ include __DIR__ . '/includes/header.php';
 <?php include 'includes/cart-modal.php'; ?>
 <?php include 'includes/checkout-form.php'; ?>
 
+<?php include __DIR__ . '/includes/cart-script.php'; ?>
 <script>
-// Cart functionality
-let cart = {};
-let products = <?php echo json_encode($products); ?>;
+// Cart functionality - CartUtils is now available immediately
+(function() {
+    // Cart functionality
+    let cart = CartUtils.getCart(); // Load from sessionStorage
+    let products = <?php echo json_encode($products); ?>;
 
-// Convert products array to object for easy lookup
-let productsData = {};
-products.forEach(product => {
-    productsData[product.id] = product;
-});
+    // Convert products array to object for easy lookup
+    let productsData = {};
+    products.forEach(product => {
+        productsData[product.id] = product;
+    });
+
+    // Listen for cart updates from other pages
+    window.addEventListener('cartUpdated', function(event) {
+        cart = event.detail;
+        updateCartDisplay();
+    });
+
+    // Initialize cart display on page load
+    function initCartDisplay() {
+        updateCartDisplay();
+    }
+    
+    // Make functions global
+    window.cart = cart;
+    window.productsData = productsData;
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCartDisplay);
+    } else {
+        initCartDisplay();
+    }
+})();
 
 function addToCart(productId) {
+    if (typeof CartUtils === 'undefined' || !CartUtils.getCart) {
+        console.error('CartUtils not loaded');
+        alert('Cart functionality is not available. Please refresh the page.');
+        return;
+    }
+    
     const quantity = parseInt(document.getElementById(`quantity-${productId}`).value);
     
     if (cart[productId]) {
-        cart[productId] += quantity;
+        cart[productId] = parseInt(cart[productId]) + quantity;
     } else {
         cart[productId] = quantity;
     }
+    
+    // Save to sessionStorage
+    CartUtils.saveCart(cart);
     
     updateCartDisplay();
     showCartNotification(productsData[productId].name, quantity);
 }
 
 function removeFromCart(productId) {
+    if (typeof CartUtils === 'undefined' || !CartUtils.getCart) {
+        console.error('CartUtils not loaded');
+        return;
+    }
     delete cart[productId];
+    CartUtils.saveCart(cart); // Save to sessionStorage
     updateCartDisplay();
 }
 
 function updateCartQuantity(productId, quantity) {
+    if (typeof CartUtils === 'undefined' || !CartUtils.getCart) {
+        console.error('CartUtils not loaded');
+        return;
+    }
     if (quantity <= 0) {
         removeFromCart(productId);
     } else {
         cart[productId] = parseInt(quantity);
+        CartUtils.saveCart(cart); // Save to sessionStorage
         updateCartDisplay();
     }
 }

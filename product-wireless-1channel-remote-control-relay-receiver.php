@@ -757,6 +757,18 @@ include __DIR__ . '/includes/header.php';
                     <span class="stock-badge info">Qty: 10 nos.</span>
                     <span class="stock-badge info">MOQ: 1 set</span>
                 </div>
+                
+                <div class="product-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button onclick="addProductToCart('wireless-1channel-relay', '<?php echo htmlspecialchars($product['name'], ENT_QUOTES); ?>', <?php echo $product['base_price']; ?>, '<?php echo htmlspecialchars($product['images'][0]['url'], ENT_QUOTES); ?>', 'FBX5XTR1')" 
+                            class="btn-add-to-cart" 
+                            style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 14px 28px; background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%); color: #fff; border: none; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(13,148,136,0.25);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;"><path d="M9 22a1 1 0 100-2 1 1 0 000 2zm10 0a1 1 0 100-2 1 1 0 000 2zM1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                        Add to Cart
+                    </button>
+                    <a href="buy.php" class="btn-view-cart" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 14px 28px; background: #fff; color: #0d9488; border: 2px solid #0d9488; border-radius: 12px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.3s ease;">
+                        View Cart
+                    </a>
+                </div>
             </div>
 
             <div>
@@ -946,6 +958,23 @@ document.addEventListener('keydown', function(e) {
         } else if (e.key === 'Escape') {
             closeLightbox();
         }
+    }
+});
+</script>
+
+<?php include __DIR__ . '/includes/cart-script.php'; ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.querySelector('.btn-add-to-cart');
+    if (btn) {
+        btn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 8px 24px rgba(13,148,136,0.35)';
+        });
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 16px rgba(13,148,136,0.25)';
+        });
     }
 });
 </script>
