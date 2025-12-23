@@ -378,7 +378,7 @@ include __DIR__ . '/includes/header.php';
             <div class="product-image-container">
                 <div class="image-gallery">
                     <div class="featured-image">
-                        <img src="assets/images/gallery/panic-alarm/forbix-semicon-panic-alarm-elevator-system.jpg" alt="FORBIX SEMICON Elevator Panic Alarm System">
+                        <img src="assets/images/gallery/panic-alarm/forbix-semicon-lift-elevator-panic-alarm-3.jpg" alt="FORBIX SEMICON Elevator Panic Alarm System">
                     </div>
                 </div>
             </div>

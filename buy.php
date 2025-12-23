@@ -124,7 +124,7 @@ $additionalHeadTags = '
 *{box-sizing:border-box}
 .buy-page{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;background:var(--bg);min-height:100vh}
 .buy-container{max-width:1280px;margin:0 auto;padding:24px 16px 60px}
-.buy-hero{background:linear-gradient(135deg,#0D8F84 0%,#0a6b63 50%,#085751 100%);border-radius:var(--radius);padding:clamp(28px,5vw,48px);margin-bottom:32px;position:relative;overflow:hidden}
+.buy-hero{background:linear-gradient(135deg,#0D8F84 0%,#0a6b63 50%,#085751 100%);border-radius:var(--radius);padding:clamp(28px,5vw,48px);margin-top:4rem;margin-bottom:32px;position:relative;overflow:hidden}
 .buy-hero::before{content:"";position:absolute;top:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(255,255,255,0.08) 0%,transparent 70%);pointer-events:none}
 .buy-hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)}
 .hero-content{position:relative;z-index:1;text-align:center}
@@ -291,9 +291,10 @@ $additionalHeadTags = '
 [data-theme="dark"] .qty-select,.checkout-input,.checkout-select{background:var(--bg);color:var(--text)}
 [data-theme="dark"] .cart-item,[data-theme="dark"] .checkout-section,[data-theme="dark"] .checkout-order-summary{background:#1e293b}
 @media(min-width:640px){.checkout-form-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:768px){.buy-container{padding:32px 24px 80px}.products-grid{gap:28px}}
-@media(min-width:1024px){.buy-container{padding:40px 32px 100px}}
-@media(max-width:480px){.btn-group{flex-direction:column}.cart-modal-container{max-width:100%}.checkout-form-row{grid-template-columns:1fr}}
+@media(min-width:768px){.buy-container{padding:32px 24px 80px}.products-grid{gap:28px}.buy-hero{margin-top:4rem}}
+@media(min-width:1024px){.buy-container{padding:40px 32px 100px}.buy-hero{margin-top:4rem}}
+@media(max-width:768px){.buy-hero{margin-top:3rem}}
+@media(max-width:480px){.btn-group{flex-direction:column}.cart-modal-container{max-width:100%}.checkout-form-row{grid-template-columns:1fr}.buy-hero{margin-top:2.5rem}}
 </style>
 ';
 
@@ -318,10 +319,10 @@ include __DIR__ . '/includes/header.php';
         <!-- Products Section -->
         <section class="products-section">
             <div class="section-header">
-                <h2 class="section-title">
+                <p class="section-title">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg>
                     Our Products
-                </h2>
+                </p>
                 <span class="product-count"><?php echo count($products); ?> Products</span>
             </div>
 
@@ -341,11 +342,11 @@ include __DIR__ . '/includes/header.php';
                         <?php endif; ?>
                     </div>
                     <div class="product-body">
-                        <h3 class="product-name">
+                        <h2 class="product-name">
                             <a href="<?php echo htmlspecialchars($product['link']); ?>">
                                 <?php echo htmlspecialchars($product['name']); ?>
                             </a>
-                        </h3>
+                        </h2>
                         <div class="product-meta">
                             <span class="meta-tag">Model: <?php echo htmlspecialchars($product['model']); ?></span>
                             <span class="meta-tag"><?php echo htmlspecialchars($product['brand']); ?></span>

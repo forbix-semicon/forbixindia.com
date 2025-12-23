@@ -541,6 +541,19 @@ include __DIR__ . '/includes/header.php';
                 <a href="device-automatic-timer-alarm.php" class="btn btn-primary">Read More</a>
             </div>
         </div>
+
+        <!-- Wireless RF Transmitter Receiver -->
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="assets/images/gallery/transmitter-receiver/forbix-semicon-4-channel-button-transmitter-receiver.jpg" alt="Wireless RF Transmitter Receiver Systems" loading="lazy">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Wireless RF Transmitter Receiver Systems</h3>
+                <p class="product-model">Multi-Channel Control</p>
+                <p class="product-description">Professional wireless RF transmitter and receiver systems. Free ISM band 380-480MHz, 1-4 channels, relay control for automation.</p>
+                <a href="device-wireless-rf-transmitter-receiver.php" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
     </section>
     <!-- CTA Section -->
     <section class="cta-section">
